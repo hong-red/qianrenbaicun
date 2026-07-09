@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>各村详情 - 投资马昌营</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .breadcrumb { background: var(--white); padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: #666; }
+        .breadcrumb a { color: var(--red); text-decoration: none; }
+        .village-detail { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px var(--shadow); border: 1px solid var(--border); margin-bottom: 32px; border-top: 4px solid var(--red); }
+        .village-header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 20px 28px; display: flex; align-items: center; gap: 14px; }
+        .village-header i { font-size: 1.6rem; }
+        .village-header h3 { font-size: 1.3rem; font-weight: 600; }
+        .village-header .tag { margin-left: auto; background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; }
+        .village-body { padding: 28px; }
+        .village-body .img-row { margin-bottom: 20px; }
+        .village-body .img-row img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; }
+        .village-body p { color: var(--text-light); line-height: 1.8; margin-bottom: 14px; }
+        .village-body ul { list-style: none; padding: 0; margin: 14px 0; }
+        .village-body ul li { padding: 8px 0; border-bottom: 1px dashed var(--border); color: var(--text); display: flex; align-items: flex-start; gap: 10px; }
+        .village-body ul li i { color: var(--red); font-size: 0.75rem; margin-top: 6px; }
+
+        @media (max-width: 992px) { .village-body .img-row { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .village-body { padding: 20px; } }
+    </style>
+</head>
+<body>
+
+    <div class="gov-top-bar">
+        <div class="container">
+            <span><i class="fas fa-building"></i> 北京市平谷区人民政府 · 马昌营镇招商专区</span>
+            <span><a href="tel:13718267923"><i class="fas fa-phone"></i> 13718267923</a><a href="contact.html"><i class="fas fa-envelope"></i> 联系我们</a></span>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="emblem">马</div>
+                <div class="logo-text"><span class="main">投资马昌营</span><span class="sub">INVEST IN MACHANGYING</span></div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> 镇情概况</a>
+                <a href="advantages.html"><i class="fas fa-star"></i> 投资优势</a>
+                <a href="industry.html"><i class="fas fa-map-marked-alt"></i> 产业布局</a>
+                <a href="villages.html" class="active"><i class="fas fa-map-marker-alt"></i> 各村详情</a>
+                <a href="policy.html"><i class="fas fa-file-alt"></i> 招商政策</a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i> 联系我们</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb"><div class="container"><a href="index.html">首页</a> &gt; 各村详情</div></div>
+
+    <header class="page-header">
+        <div class="container"><h1>各村详情</h1><p>马昌营村 · 王官屯村 · 毛官营村 · 南定福村 · 西双营村 — 一村一品，协同发展</p></div>
+    </header>
+
+    <main class="container">
+
+        <!-- 马昌营村 -->
+        <div class="village-detail">
+            <div class="village-header"><i class="fas fa-landmark"></i><h3>马昌营村</h3><span class="tag">镇政府驻地</span></div>
+            <div class="village-body">
+                <div class="img-row">
+                    <img src="images/马昌营村.jpg" alt="马昌营村">
+                </div>
+                <p>马昌营村是马昌营镇政府所在地，为全镇行政、商业和文化中心。村名源于明初军官马池率部在此驻军屯田，时称"马池营"，后演变为"马昌营"，寓意昌盛发达。作为全镇核心区域，村内拥有完善的基础设施和便捷的交通网络，临近地铁22号线马昌营站。</p>
+                <p>马昌营村是轨道交通22号线马昌营微中心的核心承载区，微中心项目与平谷线同步建设，规划总面积7.33公顷，将成为独具特色的高品质平谷西大门地标。公交枢纽规划综合实施方案已获批，已取得多规合一初审意见。</p>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 镇政府驻地，政务服务便捷高效</li>
+                    <li><i class="fas fa-circle"></i> 商业配套完善，生活便利</li>
+                    <li><i class="fas fa-circle"></i> 临近地铁22号线马昌营站，2026年底通车</li>
+                    <li><i class="fas fa-circle"></i> 教育医疗资源集中，公共设施齐全</li>
+                    <li><i class="fas fa-circle"></i> 马昌营微中心TOD综合开发核心区域</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 王官屯村 -->
+        <div class="village-detail">
+            <div class="village-header"><i class="fas fa-tractor"></i><h3>王官屯村</h3><span class="tag">现代农业</span></div>
+            <div class="village-body">
+                <div class="img-row">
+                    <img src="images/王官屯村.jpg" alt="王官屯村">
+                </div>
+                <p>王官屯村以现代农业为特色，拥有1109亩基本农田，土地规划为基本农田，紧邻马天路、密三路，交通便捷利于大型机械化作业。该地块地势平坦，土壤肥沃，已建智能水肥一体化、节水灌溉设施，采用"冬小麦+夏玉米"吨粮田模式。</p>
+                <p>千亩蔚来农场项目落地于此，计划引入智慧农业企业打造全国示范场景。王官屯村入选农业中关村三镇协同发展规划，享受科技创新政策红利，农旅融合发展潜力巨大。</p>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 1109亩基本农田，已建智能水肥一体化设施</li>
+                    <li><i class="fas fa-circle"></i> 千亩蔚来农场项目落地，打造全国示范场景</li>
+                    <li><i class="fas fa-circle"></i> 农业中关村三镇协同发展重点区域</li>
+                    <li><i class="fas fa-circle"></i> 紧邻马天路、密三路，交通便捷</li>
+                    <li><i class="fas fa-circle"></i> "冬小麦+夏玉米"吨粮田模式</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 毛官营村 -->
+        <div class="village-detail">
+            <div class="village-header"><i class="fas fa-industry"></i><h3>毛官营村</h3><span class="tag">产业聚集</span></div>
+            <div class="village-body">
+                <div class="img-row">
+                    <img src="images/毛官营村.jpg" alt="毛官营村">
+                </div>
+                <p>毛官营村是马昌营镇重要的产业聚集区，物流仓储设施完善，租金低至18元/㎡/月。村域内产业用地充足，紧邻铁路和公路网络，大秦铁路、平谷铁路与京哈铁路和货运东环线构建"H型"铁路网络，密三路和顺平路两条一级公路穿境而过，是企业投资兴业的理想选择。</p>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 物流仓储租金仅18元/㎡/月，成本优势显著</li>
+                    <li><i class="fas fa-circle"></i> 产业用地充足，可开发空间大</li>
+                    <li><i class="fas fa-circle"></i> 铁路公路网络完善，物流运输便捷</li>
+                    <li><i class="fas fa-circle"></i> 配套设施完善，税收优惠政策支持</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 南定福村 -->
+        <div class="village-detail">
+            <div class="village-header"><i class="fas fa-fish"></i><h3>南定福村</h3><span class="tag">智慧渔港</span></div>
+            <div class="village-body">
+                <div class="img-row">
+                    <img src="images/南定福村.jpg" alt="南定福村">
+                </div>
+                <p>南定福村拥有规划中的AI智慧渔港项目用地，依托中国农业大学"国家数字渔业创新中心"为核心，构建"产学研用"一体化创新体系，致力于将前沿科研成果转化为现实生产力。通过技术孵化、成果推广、产业服务三大核心功能，建设智慧渔业、数字化集成、渔业智能装备等多场景的平急两用智慧渔业创新应用基地。</p>
+                <p>天下渔仓项目总投资18200万元，现有土地188亩，拟新建冷水鱼种苗孵化车间、2万立方数字渔业养殖车间、吊水鱼暂养车间、尾水处理中心等设施。同时，宝和庄园智慧渔业项目总投资约12600万元，建设4万立方工业化循环水养殖，年产冷水鳜鱼560万斤，年产值约16800万元，年净利润2800万元。</p>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 规划AI智慧渔港项目，依托国家数字渔业创新中心</li>
+                    <li><i class="fas fa-circle"></i> 天下渔仓项目总投资18200万元，占地188亩</li>
+                    <li><i class="fas fa-circle"></i> 宝和庄园项目年产冷水鳜鱼560万斤，年产值约1.68亿元</li>
+                    <li><i class="fas fa-circle"></i> 引入AI智能养殖技术，建设冷链物流体系</li>
+                    <li><i class="fas fa-circle"></i> 平急两用体系，保障首都水产供应</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 西双营村 -->
+        <div class="village-detail">
+            <div class="village-header"><i class="fas fa-paw"></i><h3>西双营村</h3><span class="tag">宠物产业</span></div>
+            <div class="village-body">
+                <div class="img-row">
+                    <img src="images/西双营村.jpg" alt="西双营村">
+                </div>
+                <p>西双营村是马昌营镇重点打造的宠物文化产业园核心区域，由调良宠物、宠业家、它博会等业内知名企业整合资源共同打造。园区集宠物用品研发、生产、销售于一体，涵盖宠物全生命周期管理，入驻企业20余家，年产值超5亿元，已形成完整产业链。</p>
+                <p>直播电商方面，成立北京平谷宠播科技有限公司，整合100+宠物达人资源，搭建"直播+供应链"平台，目前已孵化3个百万级IP。2024年八月亚宠展上，两名主播实现1300万元销售额，助力平谷区打造全国宠物产业集群标杆和宠物友好型城市。</p>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 宠物文化产业园核心区域，入驻企业20余家</li>
+                    <li><i class="fas fa-circle"></i> 年产值超5亿元，全产业链配套服务</li>
+                    <li><i class="fas fa-circle"></i> 调良宠物、宠业家、它博会等知名企业入驻</li>
+                    <li><i class="fas fa-circle"></i> 100+宠物达人矩阵，已孵化3个百万级IP</li>
+                    <li><i class="fas fa-circle"></i> 直播+供应链平台，亚宠展单场1300万元</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="left">
+                <div class="org">北京市平谷区马昌营镇人民政府</div>
+                <div>联系人：张业腾 &nbsp;|&nbsp; 联系电话：<a href="tel:13718267923">13718267923</a></div>
+                <div>地址：北京市平谷区马昌营镇人民政府</div>
+            </div>
+            <div class="right">
+                <a href="index.html">回到首页</a><a href="about.html">镇情概况</a><a href="advantages.html">投资优势</a><a href="industry.html">产业布局</a><a href="villages.html">各村详情</a><a href="policy.html">招商政策</a><a href="contact.html">联系我们</a>
+            </div>
+            <div class="footer-copyright"><p>&copy; 2026 马昌营镇人民政府 版权所有 &nbsp;|&nbsp; 京ICP备12345678号-1</p></div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片素材预览 - 马昌营镇招商网</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif; background: #f5f7fa; color: #333; }
+        .header { background: linear-gradient(135deg, #1a3a5c 0%, #c41e3a 100%); color: white; padding: 40px 0; text-align: center; }
+        .header h1 { font-size: 2rem; margin-bottom: 10px; }
+        .header p { opacity: 0.9; font-size: 1rem; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px 20px; }
+        .category { margin-bottom: 40px; }
+        .category-title { font-size: 1.4rem; color: #1a3a5c; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #c41e3a; display: flex; align-items: center; gap: 10px; }
+        .category-title i { color: #c41e3a; }
+        .category-desc { color: #888; font-size: 0.9rem; margin-bottom: 16px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+        .card img { width: 100%; height: 200px; object-fit: cover; display: block; cursor: pointer; }
+        .card-body { padding: 14px 16px; }
+        .card-name { font-weight: 600; color: #1a3a5c; font-size: 0.95rem; margin-bottom: 6px; }
+        .card-source { font-size: 0.8rem; color: #888; }
+        .card-suggest { font-size: 0.8rem; color: #c41e3a; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #eee; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; margin-right: 6px; }
+        .tag-green { background: #e8f5e9; color: #2e7d32; }
+        .tag-blue { background: #e3f2fd; color: #1565c0; }
+        .tag-orange { background: #fff3e0; color: #e65100; }
+        .tag-purple { background: #f3e5f5; color: #7b1fa2; }
+        .summary { background: white; border-radius: 10px; padding: 24px; margin-bottom: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+        .summary h3 { color: #1a3a5c; margin-bottom: 12px; }
+        .summary-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 16px; }
+        .stat-item { text-align: center; padding: 16px; background: #f8f9fa; border-radius: 8px; }
+        .stat-num { font-size: 2rem; font-weight: 700; color: #c41e3a; }
+        .stat-label { font-size: 0.85rem; color: #666; margin-top: 4px; }
+        .missing { background: #fff3e0; border-left: 4px solid #ff9800; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 30px; }
+        .missing h4 { color: #e65100; margin-bottom: 8px; }
+        .missing ul { margin-left: 20px; color: #666; font-size: 0.9rem; line-height: 1.8; }
+        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; }
+        .lightbox .close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; cursor: pointer; }
+        .lightbox .info { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; text-align: center; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 1.4rem; } }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1><i class="fas fa-images"></i> 图片素材收集成果</h1>
+    <p>共收集 29 张真实新闻/规划图片，来源于北京日报、新华社、北京市规划自然资源委等权威渠道</p>
+</div>
+
+<div class="container">
+
+    <div class="summary">
+        <h3><i class="fas fa-chart-pie" style="color:#c41e3a;"></i> 收集概况</h3>
+        <div class="summary-stats">
+            <div class="stat-item"><div class="stat-num">29</div><div class="stat-label">总图片数</div></div>
+            <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">新闻来源</div></div>
+            <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">覆盖类别</div></div>
+            <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">占位位置</div></div>
+        </div>
+    </div>
+
+    <div class="missing">
+        <h4><i class="fas fa-exclamation-triangle"></i> 暂未找到的类别（可用已有图片替代或后续补充）</h4>
+        <ul>
+            <li><strong>马昌营镇全景航拍图</strong> — 建议用「平谷区城乡体系规划图」替代</li>
+            <li><strong>马昌营镇历史风貌照片</strong> — 建议用「历史风貌保护规划图」替代</li>
+            <li><strong>马昌营微中心TOD效果图</strong> — 建议用「地铁22号线线路示意图」或「东大桥站效果图」替代</li>
+            <li><strong>镇政府位置地图</strong> — 建议用百度地图静态图或「综合交通专项研究图」替代</li>
+        </ul>
+    </div>
+
+    <!-- 01 镇情概况 -->
+    <div class="category">
+        <div class="category-title"><i class="fas fa-info-circle"></i> 镇情概况 (about.html)</div>
+        <div class="category-desc">马昌营镇全景航拍图、历史风貌、功能分区规划</div>
+        <div class="grid">
+            <div class="card">
+                <img src="web_real/03_pinggu_planning_map.jpg" alt="平谷区城乡体系规划图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">平谷区城乡体系规划图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：镇域全景/功能分区规划</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/02_historic_preservation.jpg" alt="历史风貌保护规划图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">历史风貌保护规划图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-orange">规划图</span>
+                    <div class="card-suggest">建议用于：历史风貌照片</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/03_yukou_town_effect.jpg" alt="峪口小城镇规划效果图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">峪口小城镇规划效果图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">效果图</span>
+                    <div class="card-suggest">建议用于：功能分区规划图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/03_municipal_plan.jpg" alt="市政设施专项研究" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">市政设施专项研究</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：功能分区/基础设施</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/03_emergency_layout.jpg" alt="平急两用设施布局图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">平急两用设施布局图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：功能分区规划</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/03_leisure_layout.jpg" alt="休闲产业布局图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">休闲产业布局图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：功能分区规划</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 02 投资优势 -->
+    <div class="category">
+        <div class="category-title"><i class="fas fa-star"></i> 投资优势 (advantages.html)</div>
+        <div class="category-desc">地铁22号线、仓储物流园区实拍</div>
+        <div class="grid">
+            <div class="card">
+                <img src="web_real/04_metro_route_map.jpg" alt="22号线线路示意图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">22号线（平谷线）线路示意图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京日报客户端</div>
+                    <span class="tag tag-green">交通</span>
+                    <div class="card-suggest">建议用于：地铁22号线/交通规划图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/04_dongdaqiao_station.jpg" alt="东大桥站效果示意图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">东大桥站效果示意图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京日报客户端</div>
+                    <span class="tag tag-green">效果图</span>
+                    <div class="card-suggest">建议用于：地铁站点效果图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/04_transport_plan.jpg" alt="综合交通专项研究" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">平谷区综合交通专项研究</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：交通规划图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/05_warehouse_shelves.jpg" alt="仓库货架" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">菜鸟供应链仓库货架</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京日报/平谷区委宣传部</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：仓储物流园区实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/05_worker_picking.jpg" alt="工作人员拾货" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">工作人员智能拾货</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京日报/平谷区委宣传部</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：仓储物流园区实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/05_sorting_warehouse.jpg" alt="分拣仓库" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">分拣仓库作业现场</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京日报/平谷区委宣传部</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：仓储物流园区实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/05_logistics_scale.jpg" alt="物流地块尺度示意图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">物流地块尺度示意图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：物流规划图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/04_metro_bottom.jpg" alt="地铁文章配图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">地铁22号线施工现场</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京青年报</div>
+                    <span class="tag tag-green">实拍</span>
+                    <div class="card-suggest">建议用于：地铁建设实景</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 03 产业布局 -->
+    <div class="category">
+        <div class="category-title"><i class="fas fa-map-marked-alt"></i> 产业布局 (industry.html)</div>
+        <div class="category-desc">智慧农业、物流枢纽、TOD、宠物产业、直播电商、科学城</div>
+        <div class="grid">
+            <div class="card">
+                <img src="web_real/06_smart_farm_greenhouse.jpg" alt="智慧农业温室大棚" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">智慧农业温室大棚（草莓种植）</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社/北京日报</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：智慧农业基地/蔚来农场航拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/06_smart_farm_equipment.jpg" alt="智慧农业设备" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">智慧农业设备（水肥一体化）</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社/北京日报</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：智慧农业设备展示</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/06_agri_innovation_layout.jpg" alt="农业中关村新格局" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">农业中关村"一港两翼三镇"新格局</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：现代农业产业布局</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/07_logistics_park.jpg" alt="智慧物流园区" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">马坊新市镇智慧物流园区</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">效果图</span>
+                    <div class="card-suggest">建议用于：物流枢纽规划图/A地块</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/07_logistics_network.jpg" alt="物流枢纽总体布局" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">"一枢纽五通道一网络"总体布局</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：物流枢纽规划图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/09_pet_park_opening.jpg" alt="平谷宠咖" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">平谷宠咖（宠物文化产业园）</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京日报客户端</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：宠物文化产业园实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/09_pet_park_sign.jpg" alt="宠物产业园揭牌" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">宠物文化产业园揭牌仪式</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京日报客户端</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：宠物文化产业园实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/10_livestream_center.jpg" alt="选品展示中心" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">村播学院选品展示中心</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：直播电商基地实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/10_livestream_violin.jpg" alt="直播销售提琴" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">工作人员直播销售提琴</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：直播电商基地实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/10_livestream_ai.jpg" alt="AI自动直播" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">AI自动直播展示区</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：直播电商/科技展示</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/10_livestream_teaching.jpg" alt="直播技巧讲解" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">直播销售技巧培训</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：直播电商基地实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/10_livestream_journalist.jpg" alt="外媒记者参观" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">外媒记者参观直播基地</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：直播电商基地实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/10_livestream_guests.jpg" alt="嘉宾了解农产品" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">嘉宾了解农产品信息</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：新华社</div>
+                    <span class="tag tag-purple">实拍</span>
+                    <div class="card-suggest">建议用于：直播电商基地实拍图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/11_education_plan.jpg" alt="教育发展专项研究" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">教育发展专项研究</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：科学城/大学城规划效果图</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/11_ecology_plan.jpg" alt="生态文明专项研究" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">生态文明专项研究</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：科学城/生态规划</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="web_real/03_bottom_plan.jpg" alt="规划文章底部图" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">平谷区规划文章配图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：科学城/规划展示</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 04 联系我们 -->
+    <div class="category">
+        <div class="category-title"><i class="fas fa-phone-alt"></i> 联系我们 (contact.html)</div>
+        <div class="category-desc">镇政府位置地图</div>
+        <div class="grid">
+            <div class="card">
+                <img src="web_real/04_transport_plan.jpg" alt="综合交通" onclick="openLightbox(this)">
+                <div class="card-body">
+                    <div class="card-name">平谷区综合交通规划图</div>
+                    <div class="card-source"><i class="fas fa-newspaper"></i> 来源：北京规划自然资源</div>
+                    <span class="tag tag-blue">规划图</span>
+                    <div class="card-suggest">建议用于：位置地图（替代）</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightboxImg" src="" alt="">
+    <div class="info" id="lightboxInfo"></div>
+</div>
+
+<script>
+function openLightbox(img) {
+    const box = document.getElementById('lightbox');
+    const boxImg = document.getElementById('lightboxImg');
+    const info = document.getElementById('lightboxInfo');
+    boxImg.src = img.src;
+    info.textContent = img.alt;
+    box.style.display = 'flex';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+});
+</script>
+
+</body>
+</html>

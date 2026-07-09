@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投资优势 - 投资马昌营</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .breadcrumb { background: var(--white); padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: #666; }
+        .breadcrumb a { color: var(--red); text-decoration: none; }
+        .advantage-block { background: var(--white); border-radius: 8px; padding: 32px; margin-bottom: 28px; box-shadow: 0 2px 12px var(--shadow); border: 1px solid var(--border); border-left: 5px solid var(--red); }
+        .advantage-block h3 { font-size: 1.3rem; color: var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .advantage-block h3 i { color: var(--red); font-size: 1.5rem; }
+        .advantage-block p { color: var(--text-light); line-height: 1.8; margin-bottom: 12px; }
+        .advantage-block ul { list-style: none; padding: 0; margin: 12px 0; }
+        .advantage-block ul li { padding: 8px 0; border-bottom: 1px dashed var(--border); color: var(--text); display: flex; align-items: flex-start; gap: 10px; }
+        .advantage-block ul li i { color: var(--red); font-size: 0.75rem; margin-top: 6px; }
+
+        .highlight-box { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); border-radius: 8px; padding: 24px 32px; margin: 20px 0; }
+        .highlight-box .number { font-size: 2.5rem; font-weight: 700; }
+        .highlight-box .label { opacity: 0.85; font-size: 1rem; }
+        .time-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 16px 0; }
+        .time-card { background: #f8f9fa; border-radius: 8px; padding: 20px; text-align: center; }
+        .time-card .mins { font-size: 2rem; font-weight: 700; color: var(--red); }
+        .time-card .dest { font-size: 0.9rem; color: var(--text); margin-top: 4px; }
+        @media (max-width: 992px) { .time-grid { grid-template-columns: repeat(2, 1fr); } }
+        .calc-box { background: var(--white); border-radius: 8px; padding: 32px; margin-bottom: 28px; box-shadow: 0 2px 12px var(--shadow); border: 1px solid var(--border); border-left: 5px solid var(--red); }
+        .calc-box h3 { font-size: 1.3rem; color: var(--navy); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .calc-box h3 i { color: var(--red); font-size: 1.5rem; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .calc-inputs .calc-row { margin-bottom: 16px; }
+        .calc-inputs .calc-row label { display: block; font-size: 0.9rem; color: var(--text); margin-bottom: 4px; font-weight: 500; }
+        .calc-inputs .calc-row input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; box-sizing: border-box; }
+        .calc-inputs .calc-row input:focus { outline: none; border-color: var(--red); }
+        .calc-results { background: #f8f9fa; border-radius: 8px; padding: 24px; }
+        .calc-results .result-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+        .calc-results .result-item .label { color: #888; }
+        .calc-results .result-item .value { color: var(--text); font-weight: 600; font-size: 1.05rem; }
+        .calc-results .result-item.total { border-bottom: none; border-top: 2px solid var(--red); margin-top: 8px; padding-top: 14px; }
+        .calc-results .result-item.total .value { color: var(--red); font-size: 1.3rem; }
+        .calc-results .compare-note { margin-top: 14px; padding: 12px; background: #eef2f6; border-radius: 6px; font-size: 0.85rem; color: #666; text-align: center; }
+        .calc-btn { background: var(--red); color: var(--white); padding: 10px 28px; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 8px; }
+        .calc-btn:hover { background: var(--red-dark); }
+        @media (max-width: 768px) { .time-grid { grid-template-columns: repeat(2, 1fr); } .advantage-block { padding: 20px; } .calc-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="gov-top-bar">
+        <div class="container">
+            <span><i class="fas fa-building"></i> 北京市平谷区人民政府 · 马昌营镇招商专区</span>
+            <span><a href="tel:13718267923"><i class="fas fa-phone"></i> 13718267923</a><a href="contact.html"><i class="fas fa-envelope"></i> 联系我们</a></span>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="emblem">马</div>
+                <div class="logo-text"><span class="main">投资马昌营</span><span class="sub">INVEST IN MACHANGYING</span></div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> 镇情概况</a>
+                <a href="advantages.html" class="active"><i class="fas fa-star"></i> 投资优势</a>
+                <a href="industry.html"><i class="fas fa-map-marked-alt"></i> 产业布局</a>
+                <a href="villages.html"><i class="fas fa-map-marker-alt"></i> 各村详情</a>
+                <a href="policy.html"><i class="fas fa-file-alt"></i> 招商政策</a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i> 联系我们</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb"><div class="container"><a href="index.html">首页</a> &gt; 投资优势</div></div>
+
+    <header class="page-header">
+        <div class="container"><h1>投资优势</h1><p>轨道交通便利 · 运营成本低廉 · 政策红利丰厚 · 产业配套完善</p></div>
+    </header>
+
+    <main class="container">
+
+        <!-- 交通优势 -->
+        <div class="advantage-block">
+            <h3><i class="fas fa-subway"></i> 轨道交通便利</h3>
+            <p>轨道交通22号线（平谷线）是北京第一条跨行政区域运营并集地铁快线、市域快线于一体，实现"多网融合"的线路，预计2026年底通车。马昌营微中心项目与平谷线同步建设，规划总面积7.33公顷，将成为独具特色的高品质平谷西大门地标。此外，在建M15号线东延也交汇于此，双轨交汇形成强大的交通枢纽优势。</p>
+            <p>铁路方面，大秦铁路、平谷铁路与京哈铁路和货运东环线，构建"H型"铁路网络。公路方面，密三路和顺平路两条一级公路穿境而过。</p>
+            <div class="time-grid">
+                <div class="time-card"><div class="mins">15<small style="font-size: 0.8rem;">分钟</small></div><div class="dest">平谷新城</div></div>
+                <div class="time-card"><div class="mins">40<small style="font-size: 0.8rem;">分钟</small></div><div class="dest">首都机场</div></div>
+                <div class="time-card"><div class="mins">50<small style="font-size: 0.8rem;">分钟</small></div><div class="dest">城市副中心</div></div>
+                <div class="time-card"><div class="mins">60<small style="font-size: 0.8rem;">分钟</small></div><div class="dest">中心城区</div></div>
+            </div>
+            <div style="margin:16px 0;border-radius:8px;overflow:hidden;"><img src="images/web_real/04_metro_route_map.jpg" alt="22号线线路示意图" style="width:100%;height:280px;object-fit:cover;display:block;"></div>
+        </div>
+
+        <!-- 成本优势 -->
+        <div class="advantage-block">
+            <h3><i class="fas fa-warehouse"></i> 运营成本低廉</h3>
+            <p>马昌营镇物流仓储租金仅18元/㎡/月，相比北京市区及周边区域具有显著的成本优势。京平综合物流枢纽马昌营A地块规划总用地面积约39.75公顷，净开发用地29.03公顷，容积率1.6，建筑限高36米，政府投资建设配套供水厂、再生水厂、人防设施、周边道路，已取得征地批复，随时具备入市交易条件。</p>
+            <div class="highlight-box"><div class="number">18<span style="font-size: 1.2rem; font-weight: 400;"> 元/㎡/月</span></div><div class="label">物流仓储租金，远低于市区平均水平</div></div>
+            <ul>
+                <li><i class="fas fa-circle"></i> 仓储租金低至18元/㎡/月，配套完善</li>
+                <li><i class="fas fa-circle"></i> 产业用地39.75公顷，可灵活分割</li>
+                <li><i class="fas fa-circle"></i> 政府投资建设配套供水厂、再生水厂、道路</li>
+                <li><i class="fas fa-circle"></i> 人工成本相对较低，运营综合成本优势明显</li>
+            </ul>
+            <div style="margin:16px 0;border-radius:8px;overflow:hidden;"><img src="images/web_real/05_warehouse_shelves.jpg" alt="菜鸟供应链仓库货架" style="width:100%;height:280px;object-fit:cover;display:block;"></div>
+        </div>
+
+        <!-- 政策优势 -->
+        <div class="advantage-block">
+            <h3><i class="fas fa-seedling"></i> 农业中关村政策红利</h3>
+            <p>马昌营镇入选农业中关村"一港两翼三镇全域全场景"规划布局，作为三镇之一（大兴庄镇、峪口镇、马昌营镇），集中布局中试、转化、示范基地。享受科技创新与现代农业深度融合的政策支持，为企业发展提供强劲动力。</p>
+            <ul>
+                <li><i class="fas fa-circle"></i> 农业中关村三镇协同发展规划重点区域</li>
+                <li><i class="fas fa-circle"></i> 科技创新与现代农业融合试点，享受专项资金扶持</li>
+                <li><i class="fas fa-circle"></i> 人才引进与培养专项支持，集聚高校科研资源</li>
+                <li><i class="fas fa-circle"></i> 农医联动科学城规划，布局中国农科院研究生院、中国水产科学研究院等</li>
+            </ul>
+        </div>
+
+        <!-- 产业配套 -->
+        <div class="advantage-block">
+            <h3><i class="fas fa-cogs"></i> 产业配套完善</h3>
+            <p>镇内已形成以现代农业、智慧物流、轨道经济、宠物经济、直播电商为代表的五大产业集群，配套设施完善，产业链完整。国际大学城规划教育科研用地，计划招生不少于1万人，通过中外合作引入优质教育资源，助力打造"国际教育高地"。</p>
+            <ul>
+                <li><i class="fas fa-circle"></i> 五大产业领域协同发展，产业氛围浓厚</li>
+                <li><i class="fas fa-circle"></i> 国际大学城、农医联动科学城规划布局</li>
+                <li><i class="fas fa-circle"></i> 水电气网等基础设施完善，政务服务便捷高效</li>
+                <li><i class="fas fa-circle"></i> 50余家企业已入驻，产业链上下游配套齐全</li>
+            </ul>
+        </div>
+
+        <!-- 投资成本计算器 -->
+        <div class="calc-box">
+            <h3><i class="fas fa-calculator"></i> 投资成本计算器</h3>
+            <div class="calc-grid">
+                <div class="calc-inputs">
+                    <div class="calc-row">
+                        <label>仓储面积（平方米）</label>
+                        <input type="number" id="area" value="10000" placeholder="请输入仓储面积" oninput="calculateCost()">
+                    </div>
+                    <div class="calc-row">
+                        <label>租赁年限（年）</label>
+                        <input type="number" id="years" value="3" placeholder="请输入租赁年限" oninput="calculateCost()">
+                    </div>
+                    <div class="calc-row">
+                        <label>用工人数（人）</label>
+                        <input type="number" id="workers" value="10" placeholder="请输入用工人数" oninput="calculateCost()">
+                    </div>
+                    <button class="calc-btn" onclick="calculateCost()" type="button"><i class="fas fa-calculator"></i> 计算总成本</button>
+                </div>
+                <div class="calc-results" id="results">
+                    <div class="result-item">
+                        <span class="label">仓储租金成本（租金）</span>
+                        <span class="value" id="rentResult">¥ 6,480,000</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">人工成本估算（年均6万/人）</span>
+                        <span class="value" id="laborResult">¥ 1,800,000</span>
+                    </div>
+                    <div class="result-item total">
+                        <span class="label">租赁期总成本估算</span>
+                        <span class="value" id="totalResult">¥ 8,280,000</span>
+                    </div>
+                    <div class="compare-note">
+                        <strong>相比北京市区平均水平</strong>：可节省约<strong>约40-50%</strong>的仓储租金成本
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--white); border-radius: 8px; padding: 24px 28px; margin-bottom: 28px; box-shadow: 0 2px 12px var(--shadow); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <div>
+                <h4 style="color: var(--navy); margin-bottom: 6px;"><i class="fas fa-folder-open" style="color: var(--red); margin-right: 8px;"></i>查看可对接项目</h4>
+                <p style="color: var(--text-light); font-size: 0.9rem;">8个招商项目，按产业分类筛选，一键咨询</p>
+            </div>
+            <a href="projects.html" class="consult-btn"><i class="fas fa-arrow-right"></i> 招商项目</a>
+        </div>
+
+        <div class="contact-bar">
+            <div><h4><i class="fas fa-phone-alt"></i>招商服务热线</h4><p>13718267923 <span>工作日 9:00-18:00</span></p></div>
+            <div><a href="tel:13718267923" class="consult-btn"><i class="fas fa-headset"></i> 立即咨询</a></div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="left">
+                <div class="org">北京市平谷区马昌营镇人民政府</div>
+                <div>联系人：张业腾 &nbsp;|&nbsp; 联系电话：<a href="tel:13718267923">13718267923</a></div>
+                <div>地址：北京市平谷区马昌营镇人民政府</div>
+            </div>
+            <div class="right">
+                <a href="index.html">回到首页</a><a href="about.html">镇情概况</a><a href="advantages.html">投资优势</a><a href="industry.html">产业布局</a><a href="villages.html">各村详情</a><a href="policy.html">招商政策</a><a href="contact.html">联系我们</a>
+            </div>
+            <div class="footer-copyright"><p>&copy; 2026 马昌营镇人民政府 版权所有 &nbsp;|&nbsp; 京ICP备12345678号-1</p></div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function calculateCost() {
+            const area = parseFloat(document.getElementById('area').value) || 0;
+            const years = parseFloat(document.getElementById('years').value) || 0;
+            const workers = parseFloat(document.getElementById('workers').value) || 0;
+            const rentPerM2 = 18;
+            const annualSalary = 60000;
+            const rent = area * rentPerM2 * 12 * years;
+            const labor = workers * annualSalary * years;
+            const total = rent + labor;
+            document.getElementById('rentResult').textContent = '¥ ' + rent.toLocaleString('zh-CN');
+            document.getElementById('laborResult').textContent = '¥ ' + labor.toLocaleString('zh-CN');
+            document.getElementById('totalResult').textContent = '¥ ' + total.toLocaleString('zh-CN');
+        }
+        calculateCost();
+    </script>
+</body>
+</html>

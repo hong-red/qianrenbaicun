@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招商项目 - 投资马昌营</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .breadcrumb { background: var(--white); padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: #666; }
+        .breadcrumb a { color: var(--red); text-decoration: none; }
+        .filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; align-items: center; }
+        .filter-bar select { padding: 10px 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; background: var(--white); color: var(--text); cursor: pointer; }
+        .filter-bar select:focus { outline: none; border-color: var(--red); }
+        .filter-bar .result-count { color: #888; font-size: 0.9rem; margin-left: auto; }
+        .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 40px; }
+        .project-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px var(--shadow); border: 1px solid var(--border); border-top: 4px solid var(--red); transition: 0.2s; }
+        .project-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow); }
+        .project-card .card-body { padding: 24px; }
+        .project-card .card-body h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: 12px; }
+        .project-card .card-body .tag { display: inline-block; background: var(--navy); color: var(--white); font-size: 0.75rem; padding: 2px 10px; border-radius: 12px; margin-bottom: 12px; }
+        .project-card .card-body .info-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 0.9rem; }
+        .project-card .card-body .info-row .label { color: #888; }
+        .project-card .card-body .info-row .value { color: var(--text); font-weight: 500; }
+        .project-card .card-body .project-desc { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin: 12px 0; }
+        .project-card .card-body .btn-consult { display: inline-block; background: var(--red); color: var(--white); padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; margin-top: 12px; }
+        .project-card .card-body .btn-consult:hover { background: var(--red-dark); }
+        .project-card .card-img { width: 100%; height: 180px; background: linear-gradient(135deg, #e8ecf0 0%, #f5f7fa 100%); display: flex; align-items: center; justify-content: center; color: #bbb; border-bottom: 1px solid var(--border); }
+        .project-card .card-img i { font-size: 2.5rem; }
+        @media (max-width: 992px) { .project-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .filter-bar { flex-direction: column; align-items: stretch; } .filter-bar .result-count { margin-left: 0; } }
+    </style>
+</head>
+<body>
+    <div class="gov-top-bar">
+        <div class="container">
+            <span><i class="fas fa-building"></i> 北京市平谷区人民政府 · 马昌营镇招商专区</span>
+            <span><a href="tel:13718267923"><i class="fas fa-phone"></i> 13718267923</a><a href="contact.html"><i class="fas fa-envelope"></i> 联系我们</a></span>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><div class="emblem">马</div><div class="logo-text"><span class="main">投资马昌营</span><span class="sub">INVEST IN MACHANGYING</span></div></a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> 镇情概况</a>
+                <a href="advantages.html"><i class="fas fa-star"></i> 投资优势</a>
+                <a href="industry.html"><i class="fas fa-map-marked-alt"></i> 产业布局</a>
+                <a href="villages.html"><i class="fas fa-map-marker-alt"></i> 各村详情</a>
+                <a href="policy.html"><i class="fas fa-file-alt"></i> 招商政策</a>
+                <a href="contact.html"><i class="fas fa-phone-alt"></i> 联系我们</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+    <div class="breadcrumb"><div class="container"><a href="index.html">首页</a> &gt; 招商项目</div></div>
+    <header class="page-header">
+        <div class="container"><h1>招商项目</h1><p>查看可对接的产业项目，按产业分类筛选，点击了解详情</p></div>
+    </header>
+    <main class="container">
+
+        <div class="filter-bar">
+            <select id="filterIndustry" onchange="filterProjects()">
+                <option value="all">全部产业</option>
+                <option value="agriculture">现代农业</option>
+                <option value="logistics">智慧物流</option>
+                <option value="subway">轨道经济</option>
+                <option value="pet">宠物经济</option>
+                <option value="ecommerce">直播电商</option>
+                <option value="science">科学城/大学城</option>
+            </select>
+            <select id="filterScale" onchange="filterProjects()">
+                <option value="all">全部规模</option>
+                <option value="large">大型（>100亩）</option>
+                <option value="medium">中型（30-100亩）</option>
+                <option value="small">小型（<30亩）</option>
+            </select>
+            <span class="result-count" id="resultCount">共 8 个项目</span>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+
+            <!-- 项目1：AI智慧渔港 -->
+            <div class="project-card" data-industry="agriculture" data-scale="large">
+                <div class="card-img"><img src="images/天下渔仓_选址位置图.png" alt="天下渔仓项目选址" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="card-body">
+                    <span class="tag">现代农业</span>
+                    <h3>AI智慧渔港项目</h3>
+                    <div class="info-row"><span class="label">规划用地</span><span class="value">约200亩</span></div>
+                    <div class="info-row"><span class="label">投资估算</span><span class="value">约1.82亿元</span></div>
+                    <div class="info-row"><span class="label">合作模式</span><span class="value">企业投资/政企合作</span></div>
+                    <div class="info-row"><span class="label">项目进度</span><span class="value">已完成选址及概念设计</span></div>
+                    <div class="project-desc">依托中国农业大学"国家数字渔业创新中心"，构建"产学研用"一体化创新体系，建设智慧渔业多场景平急两用创新应用基地。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+            <!-- 项目2：宝和庄园智慧渔业 -->
+            <div class="project-card" data-industry="agriculture" data-scale="medium">
+                <div class="card-img"><i class="fas fa-home"></i></div>
+                <div class="card-body">
+                    <span class="tag">现代农业</span>
+                    <h3>宝和庄园智慧渔业项目</h3>
+                    <div class="info-row"><span class="label">规划建设</span><span class="value">4万立方循环水养殖</span></div>
+                    <div class="info-row"><span class="label">投资估算</span><span class="value">约1.26亿元</span></div>
+                    <div class="info-row"><span class="label">预计产出</span><span class="value">年产冷水鳜鱼560万斤</span></div>
+                    <div class="info-row"><span class="label">年产值</span><span class="value">约1.68亿元</span></div>
+                    <div class="project-desc">建设育种中试基地、工业化循环水养殖、实验室与孵化中心，配套2MW自发自用光伏发电项目。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+            <!-- 项目3：现代渔业科技示范 -->
+            <div class="project-card" data-industry="agriculture" data-scale="large">
+                <div class="card-img"><i class="fas fa-flask"></i></div>
+                <div class="card-body">
+                    <span class="tag">现代农业</span>
+                    <h3>现代渔业科技示范项目</h3>
+                    <div class="info-row"><span class="label">规划用地</span><span class="value">149.22亩（南北两区）</span></div>
+                    <div class="info-row"><span class="label">合作模式</span><span class="value">企业投资/政企合作</span></div>
+                    <div class="info-row"><span class="label">项目定位</span><span class="value">国家智慧渔业科技成果应用示范区</span></div>
+                    <div class="info-row"><span class="label">项目进度</span><span class="value">规划中</span></div>
+                    <div class="project-desc">落地"1研究院1中心9大样板"产业布局，含RAS厂房循环水养殖、鱼菜共生、168模式等九大样板区。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+            <!-- 项目4：千亩蔚来农场 -->
+            <div class="project-card" data-industry="agriculture" data-scale="large">
+                <div class="card-img"><i class="fas fa-tractor"></i></div>
+                <div class="card-body">
+                    <span class="tag">现代农业</span>
+                    <h3>千亩蔚来农场项目</h3>
+                    <div class="info-row"><span class="label">规划用地</span><span class="value">1109亩基本农田</span></div>
+                    <div class="info-row"><span class="label">位置</span><span class="value">王官屯村，紧邻马天路</span></div>
+                    <div class="info-row"><span class="label">合作模式</span><span class="value">引入智慧农业企业</span></div>
+                    <div class="info-row"><span class="label">现有设施</span><span class="value">智能水肥一体化、节水灌溉</span></div>
+                    <div class="project-desc">已建智能水肥一体化、节水灌溉设施，采用"冬小麦+夏玉米"吨粮田模式，打造全国示范场景。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+            <!-- 项目5：京平物流A地块 -->
+            <div class="project-card" data-industry="logistics" data-scale="large">
+                <div class="card-img"><i class="fas fa-warehouse"></i></div>
+                <div class="card-body">
+                    <span class="tag">智慧物流</span>
+                    <h3>京平综合物流枢纽A地块</h3>
+                    <div class="info-row"><span class="label">规划用地</span><span class="value">39.75公顷（约596亩）</span></div>
+                    <div class="info-row"><span class="label">建筑面积</span><span class="value">约47.66万平方米</span></div>
+                    <div class="info-row"><span class="label">容积率</span><span class="value">1.6</span></div>
+                    <div class="info-row"><span class="label">项目进度</span><span class="value">已取得征地批复，随时入市</span></div>
+                    <div class="project-desc">已完成地上物腾退和土地整理，配套供水厂、再生水厂、道路等设施由政府投资建设。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+            <!-- 项目6：马昌营微中心 -->
+            <div class="project-card" data-industry="subway" data-scale="medium">
+                <div class="card-img"><i class="fas fa-subway"></i></div>
+                <div class="card-body">
+                    <span class="tag">轨道经济</span>
+                    <h3>马昌营微中心TOD项目</h3>
+                    <div class="info-row"><span class="label">规划面积</span><span class="value">7.33公顷</span></div>
+                    <div class="info-row"><span class="label">开发模式</span><span class="value">综合开发交通枢纽</span></div>
+                    <div class="info-row"><span class="label">建设内容</span><span class="value">枢纽+商业+居住</span></div>
+                    <div class="info-row"><span class="label">项目进度</span><span class="value">公交枢纽规划已获批</span></div>
+                    <div class="project-desc">与轨道交通22号线同步建设，枢纽功能首层设置，上盖综合开发，打造"轨道+商业+文旅"融合发展模式。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+            <!-- 项目7：宠物文化产业园 -->
+            <div class="project-card" data-industry="pet" data-scale="medium">
+                <div class="card-img"><i class="fas fa-paw"></i></div>
+                <div class="card-body">
+                    <span class="tag">宠物经济</span>
+                    <h3>宠物文化产业园</h3>
+                    <div class="info-row"><span class="label">产业规模</span><span class="value">入驻企业20余家</span></div>
+                    <div class="info-row"><span class="label">年产值</span><span class="value">超5亿元</span></div>
+                    <div class="info-row"><span class="label">合作模式</span><span class="value">全产业链招商</span></div>
+                    <div class="info-row"><span class="label">项目进度</span><span class="value">已成型</span></div>
+                    <div class="project-desc">涵盖宠物全生命周期管理，上游繁殖与设备、中游食品用品研发、下游医疗美容衍生服务。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+            <!-- 项目8：农医联动科学城 -->
+            <div class="project-card" data-industry="science" data-scale="large">
+                <div class="card-img"><i class="fas fa-graduation-cap"></i></div>
+                <div class="card-body">
+                    <span class="tag">科学城/大学城</span>
+                    <h3>农医联动科学城 & 国际大学城</h3>
+                    <div class="info-row"><span class="label">核心区面积</span><span class="value">400公顷</span></div>
+                    <div class="info-row"><span class="label">高校规划</span><span class="value">计划招生不少于1万人</span></div>
+                    <div class="info-row"><span class="label">合作模式</span><span class="value">中外合作办学/科研入驻</span></div>
+                    <div class="info-row"><span class="label">项目进度</span><span class="value">远期规划</span></div>
+                    <div class="project-desc">聚焦功能性食品、药食同源研发，布局中国农科院研究生院、中国水产科学研究院、中科院植物所等。</div>
+                    <a href="contact.html" class="btn-consult"><i class="fas fa-phone-alt"></i> 咨询详情</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="left">
+                <div class="org">北京市平谷区马昌营镇人民政府</div>
+                <div>联系人：张业腾 &nbsp;|&nbsp; 联系电话：<a href="tel:13718267923">13718267923</a></div>
+                <div>地址：北京市平谷区马昌营镇人民政府</div>
+            </div>
+            <div class="right">
+                <a href="index.html">回到首页</a><a href="about.html">镇情概况</a><a href="advantages.html">投资优势</a><a href="industry.html">产业布局</a><a href="villages.html">各村详情</a><a href="policy.html">招商政策</a><a href="contact.html">联系我们</a>
+            </div>
+            <div class="footer-copyright"><p>&copy; 2026 马昌营镇人民政府 版权所有 &nbsp;|&nbsp; 京ICP备12345678号-1</p></div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function filterProjects() {
+            const industry = document.getElementById('filterIndustry').value;
+            const scale = document.getElementById('filterScale').value;
+            const cards = document.querySelectorAll('.project-card');
+            let count = 0;
+            cards.forEach(card => {
+                const indMatch = industry === 'all' || card.dataset.industry === industry;
+                const scaMatch = scale === 'all' || card.dataset.scale === scale;
+                if (indMatch && scaMatch) {
+                    card.style.display = '';
+                    count++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            document.getElementById('resultCount').textContent = '共 ' + count + ' 个项目';
+        }
+    </script>
+</body>
+</html>

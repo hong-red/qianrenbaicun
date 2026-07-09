@@ -1,0 +1,20 @@
+# 大文件/源文件不上传
+*.pptx
+*.ppt
+*.pdf
+*.doc
+*.docx
+*.xlsx
+*.xls
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 上传临时目录
+.uploads/
+
+# 依赖
+node_modules/
